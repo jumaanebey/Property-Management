@@ -1,0 +1,268 @@
+- id: 1
+    title: "Modern Downtown Apartment"
+    address: "123 Main Street, Downtown, City 12345"
+    rent: 2500
+    bedrooms: 2
+    bathrooms: 2
+    sqft: 1100
+    city: "Downtown"
+    image: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w
+  =400&h=300&fit=crop&crop=center"
+    images:
+      - "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=80
+  0&h=600&fit=crop&crop=center"
+      - "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=80
+  0&h=600&fit=crop&crop=center"
+      - "https://images.unsplash.com/photo-1560185893-a55cbc8c57e8?w=800&h
+  =600&fit=crop&crop=center"
+      - "https://images.unsplash.com/photo-1584738766473-61c083514bf4?w=80
+  0&h=600&fit=crop&crop=center"
+    slug: "modern-downtown-apartment"
+    featured: true
+    available: true
+    description: "Stunning modern apartment in the heart of downtown with 
+  contemporary finishes, floor-to-ceiling windows, and city views."
+    amenities:
+      - "In-unit washer/dryer"
+      - "Stainless steel appliances"
+      - "Hardwood floors"
+      - "Central air conditioning"
+      - "Balcony with city views"
+      - "Gym access"
+      - "Covered parking"
+
+  - id: 2
+    title: "Spacious Family Home"
+    address: "456 Oak Avenue, Riverside, City 12346"
+    rent: 3200
+    bedrooms: 4
+    bathrooms: 3
+    sqft: 2400
+    city: "Riverside"
+    image: "https://images.unsplash.com/photo-1568605114967-8130f3a36994?w
+  =400&h=300&fit=crop&crop=center"
+    images:
+      - "https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=80
+  0&h=600&fit=crop&crop=center"
+      - "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&h
+  =600&fit=crop&crop=center"
+      - "https://images.unsplash.com/photo-1567496898669-ee935f5f647a?w=80
+  0&h=600&fit=crop&crop=center"
+      - "https://images.unsplash.com/photo-1585412727339-54e4bae3bbf9?w=80
+  0&h=600&fit=crop&crop=center"
+      - "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&h
+  =600&fit=crop&crop=center"
+    slug: "spacious-family-home"
+    featured: true
+    available: true
+    description: "Perfect family home with large backyard, updated 
+  kitchen, and spacious living areas in a quiet neighborhood."
+    amenities:
+      - "Large backyard"
+      - "Updated kitchen"
+      - "Master suite"
+      - "Two-car garage"
+      - "Fireplace"
+      - "Patio deck"
+      - "Storage shed"
+
+  - id: 3
+    title: "Cozy Studio Loft"
+    address: "789 Art District, Creative Quarter, City 12347"
+    rent: 1800
+    bedrooms: 1
+    bathrooms: 1
+    sqft: 650
+    city: "Creative Quarter"
+    image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=40
+  0&h=300&fit=crop&crop=center"
+    images:
+      - "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&h
+  =600&fit=crop&crop=center"
+      - "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=80
+  0&h=600&fit=crop&crop=center"
+      - "https://images.unsplash.com/photo-1560185893-a55cbc8c57e8?w=800&h
+  =600&fit=crop&crop=center"
+    slug: "cozy-studio-loft"
+    featured: false
+    available: true
+    description: "Artistic studio loft in the vibrant Creative Quarter 
+  with exposed brick walls and high ceilings."
+    amenities:
+      - "Exposed brick walls"
+      - "High ceilings"
+      - "Large windows"
+      - "Modern fixtures"
+      - "Walk to galleries"
+      - "Street parking"
+
+  - id: 4
+    title: "Luxury Waterfront Condo"
+    address: "321 Harbor View, Marina District, City 12348"
+    rent: 4500
+    bedrooms: 3
+    bathrooms: 2
+    sqft: 1800
+    city: "Marina District"
+    image: "https://images.unsplash.com/photo-1570129477492-45c003edd2be?w
+  =400&h=300&fit=crop&crop=center"
+    images:
+      - "https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=80
+  0&h=600&fit=crop&crop=center"
+      - "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=80
+  0&h=600&fit=crop&crop=center"
+      - "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&h
+  =600&fit=crop&crop=center"
+      - "https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=80
+  0&h=600&fit=crop&crop=center"
+      - "https://images.unsplash.com/photo-1484101403633-562f891dc89a?w=80
+  0&h=600&fit=crop&crop=center"
+      - "https://images.unsplash.com/photo-1615873968403-89e068629265?w=80
+  0&h=600&fit=crop&crop=center"
+    slug: "luxury-waterfront-condo"
+    featured: true
+    available: true
+    description: "Luxurious waterfront condominium with panoramic water 
+  views, premium finishes, and resort-style amenities."
+    amenities:
+      - "Panoramic water views"
+      - "Premium appliances"
+      - "Marble countertops"
+      - "Private balcony"
+      - "Concierge service"
+      - "Pool and spa"
+      - "Marina access"
+
+  - id: 5
+    title: "Charming Victorian Duplex"
+    address: "654 Heritage Lane, Historic District, City 12349"
+    rent: 2800
+    bedrooms: 3
+    bathrooms: 2
+    sqft: 1600
+    city: "Historic District"
+    image: "https://images.unsplash.com/photo-1600047509358-9dc75507daeb?w
+  =400&h=300&fit=crop&crop=center"
+    images:
+      - "https://images.unsplash.com/photo-1600047509358-9dc75507daeb?w=80
+  0&h=600&fit=crop&crop=center"
+      - "https://images.unsplash.com/photo-1567496898669-ee935f5f647a?w=80
+  0&h=600&fit=crop&crop=center"
+      - "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&h
+  =600&fit=crop&crop=center"
+      - "https://images.unsplash.com/photo-1560185893-a55cbc8c57e8?w=800&h
+  =600&fit=crop&crop=center"
+    slug: "charming-victorian-duplex"
+    featured: false
+    available: true
+    description: "Beautifully restored Victorian duplex with original 
+  architectural details and modern conveniences."
+    amenities:
+      - "Original hardwood floors"
+      - "Restored moldings"
+      - "Updated kitchen"
+      - "Private garden"
+      - "Historic charm"
+      - "Walk to shops"
+
+  - id: 6
+    title: "University Area Townhouse"
+    address: "987 College Way, University Heights, City 12350"
+    rent: 2200
+    bedrooms: 3
+    bathrooms: 2
+    sqft: 1400
+    city: "University Heights"
+    image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w
+  =400&h=300&fit=crop&crop=center"
+    images:
+      - "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=80
+  0&h=600&fit=crop&crop=center"
+      - "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&h
+  =600&fit=crop&crop=center"
+      - "https://images.unsplash.com/photo-1567496898669-ee935f5f647a?w=80
+  0&h=600&fit=crop&crop=center"
+    slug: "university-area-townhouse"
+    featured: false
+    available: false
+    description: "Modern townhouse near the university campus, perfect for
+   students or young professionals."
+    amenities:
+      - "Near campus"
+      - "Modern layout"
+      - "Attached garage"
+      - "Small patio"
+      - "Study areas"
+      - "Public transit"
+
+  - id: 7
+    title: "Suburban Single Family"
+    address: "147 Maple Street, Green Valley, City 12351"
+    rent: 3500
+    bedrooms: 4
+    bathrooms: 3
+    sqft: 2200
+    city: "Green Valley"
+    image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w
+  =400&h=300&fit=crop&crop=center"
+    images:
+      - "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=80
+  0&h=600&fit=crop&crop=center"
+      - "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&h
+  =600&fit=crop&crop=center"
+      - "https://images.unsplash.com/photo-1567496898669-ee935f5f647a?w=80
+  0&h=600&fit=crop&crop=center"
+      - "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&h
+  =600&fit=crop&crop=center"
+      - "https://images.unsplash.com/photo-1585412727339-54e4bae3bbf9?w=80
+  0&h=600&fit=crop&crop=center"
+    slug: "suburban-single-family"
+    featured: false
+    available: true
+    description: "Beautiful single-family home in quiet suburban 
+  neighborhood with excellent schools nearby."
+    amenities:
+      - "Excellent schools"
+      - "Quiet neighborhood"
+      - "Large lot"
+      - "Two-car garage"
+      - "Updated bathrooms"
+      - "Family room"
+      - "Landscaped yard"
+
+  - id: 8
+    title: "Executive Penthouse"
+    address: "852 Sky Tower, Financial District, City 12352"
+    rent: 6000
+    bedrooms: 3
+    bathrooms: 3
+    sqft: 2500
+    city: "Financial District"
+    image: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w
+  =400&h=300&fit=crop&crop=center"
+    images:
+      - "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=80
+  0&h=600&fit=crop&crop=center"
+      - "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=80
+  0&h=600&fit=crop&crop=center"
+      - "https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=80
+  0&h=600&fit=crop&crop=center"
+      - "https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=80
+  0&h=600&fit=crop&crop=center"
+      - "https://images.unsplash.com/photo-1484101403633-562f891dc89a?w=80
+  0&h=600&fit=crop&crop=center"
+      - "https://images.unsplash.com/photo-1615873968403-89e068629265?w=80
+  0&h=600&fit=crop&crop=center"
+    slug: "executive-penthouse"
+    featured: true
+    available: true
+    description: "Exclusive penthouse with stunning city skyline views, 
+  luxury finishes, and premium building amenities."
+    amenities:
+      - "Skyline views"
+      - "Luxury finishes"
+      - "Private terrace"
+      - "Premium appliances"
+      - "Concierge"
+      - "Rooftop access"
+      - "Valet parking"
