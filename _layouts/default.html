@@ -132,27 +132,6 @@
     </script>
     {% endif %}
 
-    <!-- Structured Data -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "RealEstateAgent",
-      "name": "{{ site.title }}",
-      "description": "{{ site.description }}",
-      "url": "{{ site.url }}{{ site.baseurl }}",
-      "telephone": "{{ site.contact.phone }}",
-      "email": "{{ site.contact.email }}",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "{{ site.contact.address }}"
-      },
-      "sameAs": [
-        {% for social in site.social %}
-        "{{ social.url }}"{% unless forloop.last %},{% endunless %}
-        {% endfor %}
-      ]
-    }
-    </script>
   </head>
 
   <body class="font-sans text-gray-900 bg-white">
