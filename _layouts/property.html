@@ -1,0 +1,499 @@
+  ---
+  layout: default
+  ---
+
+  <!-- Property Header -->
+  <div class="hero-gradient text-white py-12">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto loading">
+        <div class="flex items-center text-sm text-blue-200 mb-4">
+          <a href="{{ '/' | relative_url }}" class="hover:text-white 
+  transition-colors">Home</a>
+          <i class="fas fa-chevron-right mx-2"></i>
+          <a href="{{ '/properties/' | relative_url }}" 
+  class="hover:text-white transition-colors">Properties</a>
+          <i class="fas fa-chevron-right mx-2"></i>
+          <span class="text-white">{{ page.title }}</span>
+        </div>
+        <h1 class="text-4xl md:text-5xl font-bold font-serif mb-4 
+  text-shadow">
+          {{ page.title }}
+        </h1>
+        <div class="flex items-center space-x-6 text-blue-100">
+          <span class="flex items-center">
+            <i class="fas fa-map-marker-alt mr-2"></i>
+            {{ page.address }}
+          </span>
+          {% if page.available %}
+          <span class="bg-green-500 text-white px-3 py-1 rounded-full 
+  text-sm font-medium">
+            Available Now
+          </span>
+          {% else %}
+          <span class="bg-red-500 text-white px-3 py-1 rounded-full 
+  text-sm font-medium">
+            Currently Rented
+          </span>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Property Content -->
+  <div class="py-12">
+    <div class="container mx-auto px-4">
+      <div class="max-w-6xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+
+          <!-- Main Content -->
+          <div class="lg:col-span-2">
+
+            <!-- Image Gallery -->
+            <div class="mb-8">
+              <div id="property-gallery" class="relative">
+                <!-- Main Image -->
+                <div class="relative rounded-lg overflow-hidden shadow-lg 
+  mb-4">
+                  <img 
+                    id="main-image" 
+                    src="{{ page.images[0] }}" 
+                    alt="{{ page.title }} - Main Image"
+                    class="w-full h-96 object-cover"
+                  >
+                  {% if page.featured %}
+                  <div class="absolute top-4 left-4 bg-accent 
+  text-gray-900 px-3 py-1 rounded-full text-sm font-semibold">
+                    Featured Property
+                  </div>
+                  {% endif %}
+                </div>
+
+                <!-- Thumbnail Gallery -->
+                {% if page.images.size > 1 %}
+                <div class="grid grid-cols-4 md:grid-cols-6 gap-2">
+                  {% for image in page.images limit: 6 %}
+                  <button 
+                    class="thumbnail-btn rounded-lg overflow-hidden 
+  border-2 border-transparent hover:border-primary transition-colors 
+  focus:border-primary focus:outline-none"
+                    onclick="changeMainImage('{{ image }}', {{ 
+  forloop.index0 }})"
+                  >
+                    <img 
+                      src="{{ image }}" 
+                      alt="{{ page.title }} - Image {{ forloop.index }}"
+                      class="w-full h-20 object-cover"
+                    >
+                  </button>
+                  {% endfor %}
+                </div>
+                {% endif %}
+              </div>
+            </div>
+
+            <!-- Property Description -->
+            <div class="bg-white rounded-lg shadow-lg p-8 mb-8">
+              <h2 class="text-2xl font-bold text-gray-900 mb-4">About This
+   Property</h2>
+              <p class="text-gray-600 leading-relaxed mb-6">
+                {{ page.description }}
+              </p>
+
+              <!-- Property Details Grid -->
+              <div class="grid grid-cols-2 md:grid-cols-4 gap-6 py-6 
+  border-t border-gray-200">
+                <div class="text-center">
+                  <div class="w-12 h-12 bg-primary rounded-full flex 
+  items-center justify-center mx-auto mb-2">
+                    <i class="fas fa-bed text-white"></i>
+                  </div>
+                  <p class="text-sm text-gray-600">Bedrooms</p>
+                  <p class="text-xl font-bold text-gray-900">{{
+  page.bedrooms }}</p>
+                </div>
+
+                <div class="text-center">
+                  <div class="w-12 h-12 bg-primary rounded-full flex 
+  items-center justify-center mx-auto mb-2">
+                    <i class="fas fa-bath text-white"></i>
+                  </div>
+                  <p class="text-sm text-gray-600">Bathrooms</p>
+                  <p class="text-xl font-bold text-gray-900">{{
+  page.bathrooms }}</p>
+                </div>
+
+                {% if page.sqft %}
+                <div class="text-center">
+                  <div class="w-12 h-12 bg-primary rounded-full flex 
+  items-center justify-center mx-auto mb-2">
+                    <i class="fas fa-ruler-combined text-white"></i>
+                  </div>
+                  <p class="text-sm text-gray-600">Square Feet</p>
+                  <p class="text-xl font-bold text-gray-900">{{ page.sqft
+  | number_with_delimiter }}</p>
+                </div>
+                {% endif %}
+
+                <div class="text-center">
+                  <div class="w-12 h-12 bg-primary rounded-full flex 
+  items-center justify-center mx-auto mb-2">
+                    <i class="fas fa-calendar text-white"></i>
+                  </div>
+                  <p class="text-sm text-gray-600">Available</p>
+                  <p class="text-xl font-bold text-gray-900">{% if
+  page.available %}Now{% else %}Rented{% endif %}</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Amenities -->
+            {% if page.amenities %}
+            <div class="bg-white rounded-lg shadow-lg p-8 mb-8">
+              <h2 class="text-2xl font-bold text-gray-900 mb-6">Property
+  Amenities</h2>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {% for amenity in page.amenities %}
+                <div class="flex items-center">
+                  <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                  <span class="text-gray-700">{{ amenity }}</span>
+                </div>
+                {% endfor %}
+              </div>
+            </div>
+            {% endif %}
+
+            <!-- Virtual Tour -->
+            {% if page.virtual_tour %}
+            <div class="bg-white rounded-lg shadow-lg p-8 mb-8">
+              <h2 class="text-2xl font-bold text-gray-900 mb-6">Virtual
+  Tour</h2>
+              <div class="aspect-video rounded-lg overflow-hidden">
+                <iframe 
+                  src="{{ page.virtual_tour }}" 
+                  width="100%" 
+                  height="100%" 
+                  frameborder="0" 
+                  allowfullscreen
+                  title="Virtual Tour of {{ page.title }}"
+                ></iframe>
+              </div>
+            </div>
+            {% endif %}
+
+            <!-- Floor Plan -->
+            {% if page.floor_plan %}
+            <div class="bg-white rounded-lg shadow-lg p-8 mb-8">
+              <h2 class="text-2xl font-bold text-gray-900 mb-6">Floor
+  Plan</h2>
+              <img 
+                src="{{ page.floor_plan }}" 
+                alt="Floor plan for {{ page.title }}"
+                class="w-full rounded-lg shadow-md"
+              >
+            </div>
+            {% endif %}
+
+            <!-- Location Map -->
+            <div class="bg-white rounded-lg shadow-lg p-8">
+              <h2 class="text-2xl font-bold text-gray-900 
+  mb-6">Location</h2>
+              <div class="rounded-lg overflow-hidden shadow-md" 
+  style="height: 300px;">
+                <iframe 
+                  src="https://www.google.com/maps/embed/v1/place?q={{ 
+  page.address | url_encode }}&key=YOUR_GOOGLE_MAPS_API_KEY"
+                  width="100%" 
+                  height="300" 
+                  style="border:0;" 
+                  allowfullscreen="" 
+                  loading="lazy" 
+                  referrerpolicy="no-referrer-when-downgrade"
+                  title="Location of {{ page.title }}"
+                ></iframe>
+              </div>
+              <div class="mt-4">
+                <p class="text-gray-600 flex items-center">
+                  <i class="fas fa-map-marker-alt text-primary mr-2"></i>
+                  {{ page.address }}
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Sidebar -->
+          <div class="lg:col-span-1">
+
+            <!-- Rent & Contact Card -->
+            <div class="bg-white rounded-lg shadow-lg p-8 mb-8 sticky 
+  top-24">
+              <div class="text-center mb-6">
+                <div class="text-3xl font-bold text-primary mb-2">
+                  ${{ page.rent | number_with_delimiter }}<span 
+  class="text-lg text-gray-600">/month</span>
+                </div>
+                {% if page.deposit %}
+                <p class="text-gray-600">
+                  Security Deposit: ${{ page.deposit |
+  number_with_delimiter }}
+                </p>
+                {% endif %}
+              </div>
+
+              {% if page.available %}
+              <!-- Contact Form -->
+              <form action="{{ site.formspree_endpoint }}" method="POST" 
+  class="space-y-4">
+                <input type="hidden" name="_subject" value="Property 
+  Inquiry: {{ page.title }}">
+                <input type="hidden" name="property" value="{{ page.title 
+  }}">
+                <input type="hidden" name="property-address" value="{{ 
+  page.address }}">
+
+                <div>
+                  <label for="name" class="block text-sm font-medium 
+  text-gray-700 mb-1">Full Name *</label>
+                  <input 
+                    type="text" 
+                    id="name" 
+                    name="name" 
+                    required 
+                    class="w-full px-3 py-2 border border-gray-300 
+  rounded-md focus:outline-none focus:ring-2 focus:ring-primary 
+  focus:border-transparent text-sm"
+                    placeholder="Your full name"
+                  >
+                </div>
+
+                <div>
+                  <label for="email" class="block text-sm font-medium 
+  text-gray-700 mb-1">Email *</label>
+                  <input 
+                    type="email" 
+                    id="email" 
+                    name="email" 
+                    required 
+                    class="w-full px-3 py-2 border border-gray-300 
+  rounded-md focus:outline-none focus:ring-2 focus:ring-primary 
+  focus:border-transparent text-sm"
+                    placeholder="your@email.com"
+                  >
+                </div>
+
+                <div>
+                  <label for="phone" class="block text-sm font-medium 
+  text-gray-700 mb-1">Phone</label>
+                  <input 
+                    type="tel" 
+                    id="phone" 
+                    name="phone" 
+                    class="w-full px-3 py-2 border border-gray-300 
+  rounded-md focus:outline-none focus:ring-2 focus:ring-primary 
+  focus:border-transparent text-sm"
+                    placeholder="(555) 123-4567"
+                  >
+                </div>
+
+                <div>
+                  <label for="message" class="block text-sm font-medium 
+  text-gray-700 mb-1">Message</label>
+                  <textarea 
+                    id="message" 
+                    name="message" 
+                    rows="3" 
+                    class="w-full px-3 py-2 border border-gray-300 
+  rounded-md focus:outline-none focus:ring-2 focus:ring-primary 
+  focus:border-transparent text-sm"
+                    placeholder="I'm interested in this property..."
+                  ></textarea>
+                </div>
+
+                <button 
+                  type="submit" 
+                  class="w-full bg-primary text-white py-3 px-4 rounded-md
+   hover:bg-blue-700 transition-colors font-medium focus-ring"
+                >
+                  <i class="fas fa-envelope mr-2"></i>
+                  Request Information
+                </button>
+              </form>
+
+              <div class="mt-6 pt-6 border-t border-gray-200">
+                <div class="space-y-3">
+                  <a 
+                    href="tel:{{ site.contact.phone }}" 
+                    class="flex items-center justify-center w-full 
+  bg-accent text-gray-900 py-3 px-4 rounded-md hover:bg-yellow-500 
+  transition-colors font-medium focus-ring"
+                  >
+                    <i class="fas fa-phone mr-2"></i>
+                    Call {{ site.contact.phone }}
+                  </a>
+
+                  <a 
+                    href="{{ '/contact/' | relative_url }}?property={{ 
+  page.title | url_encode }}" 
+                    class="flex items-center justify-center w-full border 
+  border-primary text-primary py-3 px-4 rounded-md hover:bg-primary 
+  hover:text-white transition-colors font-medium focus-ring"
+                  >
+                    <i class="fas fa-calendar-alt mr-2"></i>
+                    Schedule Viewing
+                  </a>
+                </div>
+              </div>
+              {% else %}
+              <!-- Not Available -->
+              <div class="text-center py-6">
+                <div class="w-16 h-16 bg-red-100 rounded-full flex 
+  items-center justify-center mx-auto mb-4">
+                  <i class="fas fa-home text-red-500 text-2xl"></i>
+                </div>
+                <h3 class="text-lg font-semibold text-gray-900 
+  mb-2">Currently Rented</h3>
+                <p class="text-gray-600 text-sm mb-4">This property is not
+   currently available.</p>
+                <a 
+                  href="{{ '/properties/' | relative_url }}" 
+                  class="bg-primary text-white py-2 px-4 rounded-md 
+  hover:bg-blue-700 transition-colors font-medium focus-ring text-sm"
+                >
+                  View Available Properties
+                </a>
+              </div>
+              {% endif %}
+            </div>
+
+            <!-- Property Manager -->
+            <div class="bg-gray-50 rounded-lg p-6">
+              <h3 class="text-lg font-semibold text-gray-900 mb-4">Your
+  Property Manager</h3>
+              <div class="flex items-center space-x-4">
+                <div class="w-12 h-12 bg-primary rounded-full flex 
+  items-center justify-center">
+                  <i class="fas fa-user text-white"></i>
+                </div>
+                <div>
+                  <p class="font-medium text-gray-900">{{ site.title
+  }}</p>
+                  <p class="text-sm text-gray-600">Professional Property
+  Management</p>
+                </div>
+              </div>
+              <div class="mt-4 space-y-2">
+                <a href="tel:{{ site.contact.phone }}" class="flex 
+  items-center text-sm text-gray-600 hover:text-primary 
+  transition-colors">
+                  <i class="fas fa-phone mr-2"></i>
+                  {{ site.contact.phone }}
+                </a>
+                <a href="mailto:{{ site.contact.email }}" class="flex 
+  items-center text-sm text-gray-600 hover:text-primary 
+  transition-colors">
+                  <i class="fas fa-envelope mr-2"></i>
+                  {{ site.contact.email }}
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Similar Properties -->
+  {% assign similar_properties = site.data.properties | where: "city",
+  page.city | where: "available", true %}
+  {% assign other_properties = similar_properties | where_exp: "property",
+   "property.id != page.property_id" %}
+  {% if other_properties.size > 0 %}
+  <div class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="max-w-6xl mx-auto">
+        <h2 class="text-3xl font-bold font-serif text-gray-900 mb-8 
+  text-center">
+          Similar Properties in {{ page.city }}
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {% for property in other_properties limit: 3 %}
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden 
+  hover:shadow-xl transition-shadow">
+            <div class="relative">
+              <img 
+                src="{{ property.image }}" 
+                alt="{{ property.title }}"
+                class="w-full h-48 object-cover"
+                loading="lazy"
+              >
+              {% if property.featured %}
+              <div class="absolute top-4 left-4 bg-accent text-gray-900 
+  px-3 py-1 rounded-full text-sm font-semibold">
+                Featured
+              </div>
+              {% endif %}
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-gray-900 mb-2">{{
+  property.title }}</h3>
+              <p class="text-gray-600 mb-3 flex items-center text-sm">
+                <i class="fas fa-map-marker-alt text-primary mr-2"></i>
+                {{ property.address }}
+              </p>
+
+              <div class="text-2xl font-bold text-primary mb-4">
+                ${{ property.rent | number_with_delimiter }}/month
+              </div>
+
+              <div class="flex items-center space-x-4 text-sm 
+  text-gray-600 mb-4">
+                <span class="flex items-center">
+                  <i class="fas fa-bed text-primary mr-1"></i>
+                  {{ property.bedrooms }} bed
+                </span>
+                <span class="flex items-center">
+                  <i class="fas fa-bath text-primary mr-1"></i>
+                  {{ property.bathrooms }} bath
+                </span>
+              </div>
+
+              <a 
+                href="{{ '/properties/' | append: property.slug | append: 
+  '/' | relative_url }}" 
+                class="block w-full bg-primary text-white text-center py-2
+   rounded-md hover:bg-blue-700 transition-colors font-medium focus-ring"
+              >
+                View Details
+              </a>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endif %}
+
+  <script>
+  function changeMainImage(imageSrc, index) {
+    document.getElementById('main-image').src = imageSrc;
+
+    // Update thumbnail active state
+    document.querySelectorAll('.thumbnail-btn').forEach((btn, i) => {
+      if (i === index) {
+        btn.classList.add('border-primary');
+      } else {
+        btn.classList.remove('border-primary');
+      }
+    });
+  }
+
+  // Set first thumbnail as active by default
+  document.addEventListener('DOMContentLoaded', function() {
+    const firstThumbnail = document.querySelector('.thumbnail-btn');
+    if (firstThumbnail) {
+      firstThumbnail.classList.add('border-primary');
+    }
+  });
+  </script>
