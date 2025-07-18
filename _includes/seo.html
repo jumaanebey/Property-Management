@@ -1,0 +1,379 @@
+<!-- SEO Meta Tags -->
+     <meta charset="utf-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1, 
+     shrink-to-fit=no">
+
+     <!-- Basic SEO -->
+     <title>{% if page.title %}{{ page.title }} | {{ site.title }}{% else
+     %}{{ site.title }} | {{ site.description }}{% endif %}</title>
+     <meta name="description" content="{% if page.description %}{{ 
+     page.description }}{% elsif page.excerpt %}{{ page.excerpt | 
+     strip_html | strip_newlines | truncate: 160 }}{% else %}{{ 
+     site.description }}{% endif %}">
+
+     <!-- Keywords -->
+     <meta name="keywords" content="{% if page.keywords %}{{ page.keywords 
+     }}{% else %}property management, rental properties, real estate 
+     management, property services, tenant screening, maintenance, {{ 
+     site.location | default: 'local area' }}{% endif %}">
+
+     <!-- Author and Publisher -->
+     <meta name="author" content="{{ site.title }}">
+     <meta name="publisher" content="{{ site.title }}">
+
+     <!-- Canonical URL -->
+     <link rel="canonical" href="{{ page.url | absolute_url }}">
+
+     <!-- OpenGraph / Facebook -->
+     <meta property="og:type" content="{% if page.layout == 'property' 
+     %}article{% else %}website{% endif %}">
+     <meta property="og:title" content="{% if page.title %}{{ page.title }}
+      | {{ site.title }}{% else %}{{ site.title }}{% endif %}">
+     <meta property="og:description" content="{% if page.description %}{{ 
+     page.description }}{% elsif page.excerpt %}{{ page.excerpt | 
+     strip_html | strip_newlines | truncate: 160 }}{% else %}{{ 
+     site.description }}{% endif %}">
+     <meta property="og:url" content="{{ page.url | absolute_url }}">
+     <meta property="og:site_name" content="{{ site.title }}">
+     <meta property="og:locale" content="en_US">
+
+     <!-- OpenGraph Images -->
+     {% if page.image %}
+       <meta property="og:image" content="{{ page.image | absolute_url }}">
+       <meta property="og:image:width" content="1200">
+       <meta property="og:image:height" content="630">
+       <meta property="og:image:alt" content="{% if page.image_alt %}{{ 
+     page.image_alt }}{% else %}{{ page.title | default: site.title }}{% 
+     endif %}">
+     {% elsif page.layout == 'property' and page.images %}
+       <meta property="og:image" content="{{ page.images.first | 
+     absolute_url }}">
+       <meta property="og:image:width" content="1200">
+       <meta property="og:image:height" content="630">
+       <meta property="og:image:alt" content="{{ page.title }} - Property 
+     Image">
+     {% else %}
+       <meta property="og:image" content="{{ 
+     '/assets/images/og-default.jpg' | absolute_url }}">
+       <meta property="og:image:width" content="1200">
+       <meta property="og:image:height" content="630">
+       <meta property="og:image:alt" content="{{ site.title }} - 
+     Professional Property Management">
+     {% endif %}
+
+     <!-- Twitter Card -->
+     <meta name="twitter:card" content="summary_large_image">
+     <meta name="twitter:title" content="{% if page.title %}{{ page.title 
+     }} | {{ site.title }}{% else %}{{ site.title }}{% endif %}">
+     <meta name="twitter:description" content="{% if page.description %}{{ 
+     page.description }}{% elsif page.excerpt %}{{ page.excerpt | 
+     strip_html | strip_newlines | truncate: 160 }}{% else %}{{ 
+     site.description }}{% endif %}">
+     {% if page.image %}
+       <meta name="twitter:image" content="{{ page.image | absolute_url 
+     }}">
+     {% elsif page.layout == 'property' and page.images %}
+       <meta name="twitter:image" content="{{ page.images.first | 
+     absolute_url }}">
+     {% else %}
+       <meta name="twitter:image" content="{{ 
+     '/assets/images/twitter-default.jpg' | absolute_url }}">
+     {% endif %}
+     <meta name="twitter:image:alt" content="{% if page.image_alt %}{{ 
+     page.image_alt }}{% else %}{{ page.title | default: site.title }}{% 
+     endif %}">
+
+     <!-- Additional Meta Tags -->
+     <meta name="robots" content="index, follow, max-snippet:-1, 
+     max-image-preview:large, max-video-preview:-1">
+     <meta name="googlebot" content="index, follow">
+
+     <!-- Geographic Meta Tags -->
+     {% if site.contact.city and site.contact.state %}
+     <meta name="geo.region" content="{{ site.contact.state }}">
+     <meta name="geo.placename" content="{{ site.contact.city }}">
+     {% endif %}
+     {% if site.contact.coordinates %}
+     <meta name="geo.position" content="{{ site.contact.coordinates }}">
+     <meta name="ICBM" content="{{ site.contact.coordinates }}">
+     {% endif %}
+
+     <!-- Verification Tags -->
+     {% if site.google_site_verification %}
+     <meta name="google-site-verification" content="{{ 
+     site.google_site_verification }}">
+     {% endif %}
+     {% if site.bing_site_verification %}
+     <meta name="msvalidate.01" content="{{ site.bing_site_verification 
+     }}">
+     {% endif %}
+
+     <!-- DNS Prefetch -->
+     <link rel="dns-prefetch" href="//fonts.googleapis.com">
+     <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+     <link rel="dns-prefetch" href="//www.google-analytics.com">
+
+     <!-- Preconnect -->
+     <link rel="preconnect" href="https://fonts.googleapis.com" 
+     crossorigin>
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+     <!-- Favicons -->
+     <link rel="apple-touch-icon" sizes="180x180" href="{{ 
+     '/apple-touch-icon.png' | relative_url }}">
+     <link rel="icon" type="image/png" sizes="32x32" href="{{ 
+     '/favicon-32x32.png' | relative_url }}">
+     <link rel="icon" type="image/png" sizes="16x16" href="{{ 
+     '/favicon-16x16.png' | relative_url }}">
+     <link rel="manifest" href="{{ '/site.webmanifest' | relative_url }}">
+     <link rel="mask-icon" href="{{ '/safari-pinned-tab.svg' | relative_url
+      }}" color="#1e40af">
+     <meta name="msapplication-TileColor" content="#1e40af">
+     <meta name="theme-color" content="#1e40af">
+
+     <!-- Language -->
+     <meta http-equiv="content-language" content="en-US">
+
+     <!-- Cache Control -->
+     <meta http-equiv="Cache-Control" content="public, max-age=31536000">
+
+     <!-- Business Schema JSON-LD -->
+     {% if page.url == "/" or page.url == "/index.html" %}
+     <script type="application/ld+json">
+     {
+       "@context": "https://schema.org",
+       "@type": "RealEstateAgent",
+       "name": "{{ site.title }}",
+       "description": "{{ site.description }}",
+       "url": "{{ site.url }}{{ site.baseurl }}",
+       "logo": "{{ '/assets/images/logo.png' | absolute_url }}",
+       "image": "{{ '/assets/images/og-default.jpg' | absolute_url }}",
+       "telephone": "{{ site.contact.phone }}",
+       "email": "{{ site.contact.email }}",
+       "address": {
+         "@type": "PostalAddress",
+         "streetAddress": "{{ site.contact.address | split: ',' | first 
+     }}",
+         "addressLocality": "{{ site.contact.city | default: 'Metropolitan 
+     Area' }}",
+         "addressRegion": "{{ site.contact.state | default: 'State' }}",
+         "postalCode": "{{ site.contact.zip | default: '00000' }}",
+         "addressCountry": "US"
+       },
+       "geo": {
+         "@type": "GeoCoordinates",
+         "latitude": "{{ site.contact.coordinates | split: ',' | first | 
+     default: '40.7484' }}",
+         "longitude": "{{ site.contact.coordinates | split: ',' | last | 
+     default: '-73.9857' }}"
+       },
+       "openingHours": [
+         "Mo-Fr 08:00-18:00",
+         "Sa 09:00-16:00"
+       ],
+       "areaServed": {
+         "@type": "GeoCircle",
+         "geoMidpoint": {
+           "@type": "GeoCoordinates",
+           "latitude": "{{ site.contact.coordinates | split: ',' | first | 
+     default: '40.7484' }}",
+           "longitude": "{{ site.contact.coordinates | split: ',' | last | 
+     default: '-73.9857' }}"
+         },
+         "geoRadius": "25000"
+       },
+       "serviceType": [
+         "Property Management",
+         "Rental Property Services",
+         "Tenant Screening",
+         "Property Maintenance",
+         "Real Estate Management"
+       ],
+       "hasOfferCatalog": {
+         "@type": "OfferCatalog",
+         "name": "Property Management Services",
+         "itemListElement": [
+           {
+             "@type": "Offer",
+             "itemOffered": {
+               "@type": "Service",
+               "name": "Full Property Management",
+               "description": "Complete property management including 
+     tenant screening, rent collection, and maintenance coordination"
+             }
+           },
+           {
+             "@type": "Offer",
+             "itemOffered": {
+               "@type": "Service",
+               "name": "Tenant Placement",
+               "description": "Professional tenant screening and placement 
+     services"
+             }
+           },
+           {
+             "@type": "Offer",
+             "itemOffered": {
+               "@type": "Service",
+               "name": "Property Maintenance",
+               "description": "24/7 maintenance coordination and emergency 
+     response"
+             }
+           }
+         ]
+       },
+       "sameAs": [
+         {% if site.social.facebook %}"{{ site.social.facebook }}",{% endif
+      %}
+         {% if site.social.twitter %}"{{ site.social.twitter }}",{% endif
+     %}
+         {% if site.social.linkedin %}"{{ site.social.linkedin }}",{% endif
+      %}
+         {% if site.social.instagram %}"{{ site.social.instagram }}"{%
+     endif %}
+       ]
+     }
+     </script>
+     {% endif %}
+
+     <!-- Property Schema JSON-LD -->
+     {% if page.layout == 'property' %}
+     <script type="application/ld+json">
+     {
+       "@context": "https://schema.org",
+       "@type": "RealEstateListing",
+       "name": "{{ page.title }}",
+       "description": "{{ page.description | default: page.excerpt |
+     strip_html | strip_newlines }}",
+       "url": "{{ page.url | absolute_url }}",
+       {% if page.images %}
+       "image": [
+         {% for image in page.images %}
+         "{{ image }}"{% unless forloop.last %},{% endunless %}
+         {% endfor %}
+       ],
+       {% endif %}
+       "listingAgent": {
+         "@type": "RealEstateAgent",
+         "name": "{{ site.title }}",
+         "telephone": "{{ site.contact.phone }}",
+         "email": "{{ site.contact.email }}"
+       },
+       "address": {
+         "@type": "PostalAddress",
+         "streetAddress": "{{ page.address }}",
+         "addressLocality": "{{ page.city }}",
+         "addressRegion": "{{ page.state | default: site.contact.state }}",
+         "addressCountry": "US"
+       },
+       "geo": {
+         "@type": "GeoCoordinates",
+         "latitude": "{{ page.latitude | default: site.contact.coordinates
+     | split: ',' | first }}",
+         "longitude": "{{ page.longitude | default:
+     site.contact.coordinates | split: ',' | last }}"
+       },
+       "offers": {
+         "@type": "Offer",
+         "price": "{{ page.rent }}",
+         "priceCurrency": "USD",
+         "priceSpecification": {
+           "@type": "UnitPriceSpecification",
+           "price": "{{ page.rent }}",
+           "priceCurrency": "USD",
+           "unitText": "MONTH"
+         },
+         "availability": "{% if page.available %}InStock{% else
+     %}OutOfStock{% endif %}"
+       },
+       "numberOfRooms": "{{ page.bedrooms }}",
+       "numberOfBedrooms": "{{ page.bedrooms }}",
+       "numberOfBathroomsTotal": "{{ page.bathrooms }}",
+       "floorSize": {
+         "@type": "QuantitativeValue",
+         "value": "{{ page.sqft }}",
+         "unitCode": "FTK"
+       },
+       {% if page.amenities %}
+       "amenityFeature": [
+         {% for amenity in page.amenities %}
+         {
+           "@type": "LocationFeatureSpecification",
+           "name": "{{ amenity }}"
+         }{% unless forloop.last %},{% endunless %}
+         {% endfor %}
+       ],
+       {% endif %}
+       "datePosted": "{{ page.date | default: site.time | date_to_xmlschema
+      }}",
+       "validThrough": "{{ page.date | default: site.time | date: '%s' |
+     plus: 7776000 | date_to_xmlschema }}"
+     }
+     </script>
+     {% endif %}
+
+     <!-- WebSite Schema JSON-LD -->
+     {% if page.url == "/" or page.url == "/index.html" %}
+     <script type="application/ld+json">
+     {
+       "@context": "https://schema.org",
+       "@type": "WebSite",
+       "name": "{{ site.title }}",
+       "url": "{{ site.url }}{{ site.baseurl }}",
+       "description": "{{ site.description }}",
+       "publisher": {
+         "@type": "Organization",
+         "name": "{{ site.title }}",
+         "logo": {
+           "@type": "ImageObject",
+           "url": "{{ '/assets/images/logo.png' | absolute_url }}"
+         }
+       },
+       "potentialAction": {
+         "@type": "SearchAction",
+         "target": {
+           "@type": "EntryPoint",
+           "urlTemplate": "{{ site.url }}{{ site.baseurl 
+     }}/properties/?search={search_term_string}"
+         },
+         "query-input": "required name=search_term_string"
+       }
+     }
+     </script>
+     {% endif %}
+
+     <!-- Organization Schema JSON-LD -->
+     {% if page.url == "/about/" or page.url == "/about/index.html" %}
+     <script type="application/ld+json">
+     {
+       "@context": "https://schema.org",
+       "@type": "Organization",
+       "name": "{{ site.title }}",
+       "url": "{{ site.url }}{{ site.baseurl }}",
+       "logo": "{{ '/assets/images/logo.png' | absolute_url }}",
+       "description": "{{ site.description }}",
+       "telephone": "{{ site.contact.phone }}",
+       "email": "{{ site.contact.email }}",
+       "address": {
+         "@type": "PostalAddress",
+         "streetAddress": "{{ site.contact.address | split: ',' | first
+     }}",
+         "addressLocality": "{{ site.contact.city | default: 'Metropolitan 
+     Area' }}",
+         "addressRegion": "{{ site.contact.state | default: 'State' }}",
+         "postalCode": "{{ site.contact.zip | default: '00000' }}",
+         "addressCountry": "US"
+       },
+       "foundingDate": "{{ site.founding_date | default: '2010' }}",
+       "numberOfEmployees": "{{ site.team_size | default: '10-50' }}",
+       "knowsAbout": [
+         "Property Management",
+         "Real Estate",
+         "Rental Properties",
+         "Tenant Relations",
+         "Property Maintenance",
+         "Investment Properties"
+       ]
+     }
+     </script>
+     {% endif %}
