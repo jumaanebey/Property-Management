@@ -1,0 +1,359 @@
+ <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title
+  }}</title>
+    <meta name="description" content="{% if page.description %}{{ 
+  page.description }}{% else %}{{ site.description }}{% endif %}">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ page.url | absolute_url }}">
+    <meta property="og:title" content="{% if page.title %}{{ page.title }}
+   | {% endif %}{{ site.title }}">
+    <meta property="og:description" content="{% if page.description %}{{ 
+  page.description }}{% else %}{{ site.description }}{% endif %}">
+    <meta property="og:image" content="{% if page.image %}{{ page.image | 
+  absolute_url }}{% else %}https://images.unsplash.com/photo-1560518883-ce
+  09059eeffa?w=1200&h=630&fit=crop{% endif %}">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="{{ page.url | absolute_url }}">
+    <meta property="twitter:title" content="{% if page.title %}{{ 
+  page.title }} | {% endif %}{{ site.title }}">
+    <meta property="twitter:description" content="{% if page.description 
+  %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
+    <meta property="twitter:image" content="{% if page.image %}{{ 
+  page.image | absolute_url }}{% else %}https://images.unsplash.com/photo-
+  1560518883-ce09059eeffa?w=1200&h=630&fit=crop{% endif %}">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="{{ '/assets/favicon.ico' | 
+  relative_url }}">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: '#1e40af',
+              secondary: '#3b82f6',
+              accent: '#f59e0b',
+              success: '#10b981',
+              warning: '#f59e0b',
+              error: '#ef4444'
+            },
+            fontFamily: {
+              'sans': ['Inter', 'system-ui', 'sans-serif'],
+              'serif': ['Playfair Display', 'Georgia', 'serif']
+            }
+          }
+        }
+      }
+    </script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fo
+  nt-awesome/6.4.0/css/all.min.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;40
+  0;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap"
+   rel="stylesheet">
+
+    <!-- Critical CSS -->
+    <style>
+      /* Critical above-the-fold styles */
+      .hero-gradient {
+        background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+      }
+
+      .text-shadow {
+        text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      }
+
+      /* Smooth scrolling */
+      html {
+        scroll-behavior: smooth;
+      }
+
+      /* Loading animation */
+      .loading {
+        opacity: 0;
+        transform: translateY(20px);
+        animation: fadeInUp 0.6s ease forwards;
+      }
+
+      @keyframes fadeInUp {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Focus styles for accessibility */
+      .focus-ring:focus {
+        outline: 2px solid #3b82f6;
+        outline-offset: 2px;
+      }
+    </style>
+
+    <!-- Google Analytics -->
+    {% if site.google_analytics %}
+    <script async src="https://www.googletagmanager.com/gtag/js?id={{ 
+  site.google_analytics }}"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', '{{ site.google_analytics }}');
+    </script>
+    {% endif %}
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "RealEstateAgent",
+      "name": "{{ site.title }}",
+      "description": "{{ site.description }}",
+      "url": "{{ site.url }}{{ site.baseurl }}",
+      "telephone": "{{ site.contact.phone }}",
+      "email": "{{ site.contact.email }}",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "{{ site.contact.address }}"
+      },
+      "sameAs": [
+        {% for social in site.social %}
+        "{{ social.url }}"{% unless forloop.last %},{% endunless %}
+        {% endfor %}
+      ]
+    }
+    </script>
+  </head>
+
+  <body class="font-sans text-gray-900 bg-white">
+    <!-- Skip to content link for accessibility -->
+    <a href="#main-content" class="sr-only focus:not-sr-only 
+  focus:absolute focus:top-4 focus:left-4 bg-primary text-white px-4 py-2 
+  rounded-md z-50">
+      Skip to main content
+    </a>
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg fixed w-full top-0 z-40" id="navbar">
+      <div class="container mx-auto px-4">
+        <div class="flex justify-between items-center py-4">
+          <!-- Logo -->
+          <a href="{{ '/' | relative_url }}" class="flex items-center 
+  space-x-3 text-2xl font-bold text-primary focus-ring">
+            <i class="fas fa-home text-3xl"></i>
+            <span class="font-serif">{{ site.title }}</span>
+          </a>
+
+          <!-- Desktop Menu -->
+          <div class="hidden md:flex items-center space-x-8">
+            <a href="{{ '/' | relative_url }}" class="text-gray-700 
+  hover:text-primary transition-colors focus-ring {% if page.url == '/' 
+  %}text-primary font-semibold{% endif %}">Home</a>
+            <a href="{{ '/about/' | relative_url }}" class="text-gray-700 
+  hover:text-primary transition-colors focus-ring {% if page.url contains 
+  'about' %}text-primary font-semibold{% endif %}">About</a>
+            <a href="{{ '/services/' | relative_url }}" 
+  class="text-gray-700 hover:text-primary transition-colors focus-ring {% 
+  if page.url contains 'services' %}text-primary font-semibold{% endif 
+  %}">Services</a>
+            <a href="{{ '/properties/' | relative_url }}" 
+  class="text-gray-700 hover:text-primary transition-colors focus-ring {% 
+  if page.url contains 'properties' %}text-primary font-semibold{% endif 
+  %}">Properties</a>
+            <a href="{{ '/contact/' | relative_url }}" class="bg-primary 
+  text-white px-6 py-2 rounded-full hover:bg-blue-700 transition-colors 
+  focus-ring {% if page.url contains 'contact' %}bg-blue-700{% endif 
+  %}">Contact Us</a>
+          </div>
+
+          <!-- Mobile Menu Button -->
+          <button id="mobile-menu-button" class="md:hidden text-gray-700 
+  hover:text-primary focus-ring" aria-label="Toggle mobile menu">
+            <i class="fas fa-bars text-xl"></i>
+          </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden pb-4">
+          <div class="space-y-4">
+            <a href="{{ '/' | relative_url }}" class="block text-gray-700 
+  hover:text-primary transition-colors focus-ring {% if page.url == '/' 
+  %}text-primary font-semibold{% endif %}">Home</a>
+            <a href="{{ '/about/' | relative_url }}" class="block 
+  text-gray-700 hover:text-primary transition-colors focus-ring {% if 
+  page.url contains 'about' %}text-primary font-semibold{% endif 
+  %}">About</a>
+            <a href="{{ '/services/' | relative_url }}" class="block 
+  text-gray-700 hover:text-primary transition-colors focus-ring {% if 
+  page.url contains 'services' %}text-primary font-semibold{% endif 
+  %}">Services</a>
+            <a href="{{ '/properties/' | relative_url }}" class="block 
+  text-gray-700 hover:text-primary transition-colors focus-ring {% if 
+  page.url contains 'properties' %}text-primary font-semibold{% endif 
+  %}">Properties</a>
+            <a href="{{ '/contact/' | relative_url }}" class="block 
+  bg-primary text-white px-6 py-2 rounded-full text-center 
+  hover:bg-blue-700 transition-colors focus-ring {% if page.url contains 
+  'contact' %}bg-blue-700{% endif %}">Contact Us</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main id="main-content" class="pt-20">
+      {{ content }}
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white">
+      <div class="container mx-auto px-4 py-12">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <!-- Company Info -->
+          <div class="md:col-span-2">
+            <div class="flex items-center space-x-3 mb-6">
+              <i class="fas fa-home text-3xl text-accent"></i>
+              <span class="text-2xl font-bold font-serif">{{ site.title
+  }}</span>
+            </div>
+            <p class="text-gray-300 mb-6 leading-relaxed">
+              {{ site.description }}
+            </p>
+            <div class="flex space-x-4">
+              {% for social in site.social %}
+              <a href="{{ social.url }}" target="_blank" rel="noopener 
+  noreferrer" class="text-gray-300 hover:text-accent transition-colors 
+  text-2xl focus-ring" aria-label="{{ social.name }}">
+                <i class="{{ social.icon }}"></i>
+              </a>
+              {% endfor %}
+            </div>
+          </div>
+
+          <!-- Quick Links -->
+          <div>
+            <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+            <ul class="space-y-2">
+              <li><a href="{{ '/' | relative_url }}" class="text-gray-300 
+  hover:text-white transition-colors focus-ring">Home</a></li>
+              <li><a href="{{ '/about/' | relative_url }}" 
+  class="text-gray-300 hover:text-white transition-colors 
+  focus-ring">About Us</a></li>
+              <li><a href="{{ '/services/' | relative_url }}" 
+  class="text-gray-300 hover:text-white transition-colors 
+  focus-ring">Services</a></li>
+              <li><a href="{{ '/properties/' | relative_url }}" 
+  class="text-gray-300 hover:text-white transition-colors 
+  focus-ring">Properties</a></li>
+              <li><a href="{{ '/contact/' | relative_url }}" 
+  class="text-gray-300 hover:text-white transition-colors 
+  focus-ring">Contact Us</a></li>
+            </ul>
+          </div>
+
+          <!-- Contact Info -->
+          <div>
+            <h3 class="text-lg font-semibold mb-4">Contact Info</h3>
+            <div class="space-y-3">
+              <div class="flex items-start space-x-3">
+                <i class="fas fa-map-marker-alt text-accent mt-1"></i>
+                <span class="text-gray-300 text-sm">{{
+  site.contact.address }}</span>
+              </div>
+              <div class="flex items-center space-x-3">
+                <i class="fas fa-phone text-accent"></i>
+                <a href="tel:{{ site.contact.phone }}" 
+  class="text-gray-300 hover:text-white transition-colors focus-ring">{{
+  site.contact.phone }}</a>
+              </div>
+              <div class="flex items-center space-x-3">
+                <i class="fas fa-envelope text-accent"></i>
+                <a href="mailto:{{ site.contact.email }}" 
+  class="text-gray-300 hover:text-white transition-colors focus-ring">{{
+  site.contact.email }}</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="border-t border-gray-700 mt-8 pt-8 text-center">
+          <p class="text-gray-400 text-sm">
+            &copy; {{ 'now' | date: '%Y' }} {{ site.title }}. All rights
+  reserved. |
+            <a href="{{ '/privacy/' | relative_url }}" 
+  class="hover:text-white transition-colors focus-ring">Privacy Policy</a>
+   |
+            <a href="{{ '/terms/' | relative_url }}" 
+  class="hover:text-white transition-colors focus-ring">Terms of
+  Service</a>
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+      // Mobile menu toggle
+
+  document.getElementById('mobile-menu-button').addEventListener('click',
+  function() {
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenu.classList.toggle('hidden');
+      });
+
+      // Navbar scroll effect
+      window.addEventListener('scroll', function() {
+        const navbar = document.getElementById('navbar');
+        if (window.scrollY > 50) {
+          navbar.classList.add('shadow-xl');
+        } else {
+          navbar.classList.remove('shadow-xl');
+        }
+      });
+
+      // Loading animation
+      document.addEventListener('DOMContentLoaded', function() {
+        const elements = document.querySelectorAll('.loading');
+        elements.forEach((el, index) => {
+          setTimeout(() => {
+            el.classList.add('loading');
+          }, index * 100);
+        });
+      });
+
+      // Lazy loading for images
+      if ('IntersectionObserver' in window) {
+        const imageObserver = new IntersectionObserver((entries, observer)
+   => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const img = entry.target;
+              img.src = img.dataset.src;
+              img.classList.remove('lazy');
+              observer.unobserve(img);
+            }
+          });
+        });
+
+        document.querySelectorAll('img[data-src]').forEach(img => {
+          imageObserver.observe(img);
+        });
+      }
+    </script>
+  </body>
+  </html>
