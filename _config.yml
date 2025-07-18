@@ -1,0 +1,71 @@
+title: "My Property Management"                                       
+    description: "Stress-Free Property Management Services - Professional 
+    property management solutions for property owners and quality rentals 
+    for tenants."
+    baseurl: "/property-management"
+    url: "https://jumaanebey.github.io"
+
+    # Build settings
+    markdown: kramdown
+    highlighter: rouge
+    permalink: pretty
+    sass:
+      style: compressed
+
+    # Collections
+    collections:
+      properties:
+        output: true
+        permalink: /properties/:name/
+
+    # Plugins
+    plugins:
+      - jekyll-feed
+      - jekyll-sitemap
+      - jekyll-seo-tag
+
+    # SEO settings
+    author:
+      name: "My Property Management"
+      email: "info@mypropertymanagement.com"
+
+    social:
+      - name: "Facebook"
+        url: "https://facebook.com/mypropertymanagement"
+        icon: "fab fa-facebook"
+      - name: "Twitter"
+        url: "https://twitter.com/mypropertymanagement"
+        icon: "fab fa-twitter"
+      - name: "LinkedIn"
+        url: "https://linkedin.com/company/mypropertymanagement"
+        icon: "fab fa-linkedin"
+      - name: "Instagram"
+        url: "https://instagram.com/mypropertymanagement"
+        icon: "fab fa-instagram"
+
+    # Contact information
+    contact:
+      phone: "(555) 123-4567"
+      email: "info@mypropertymanagement.com"
+      address: "123 Business Ave, Suite 100, Your City, ST 12345"
+
+    # Google services
+    google_analytics: "G-XXXXXXXXXX" # Replace with your actual GA4 
+    tracking ID
+    google_maps_api_key: "" # Add your Google Maps API key if needed
+
+    # Formspree contact form
+    formspree_endpoint: "https://formspree.io/f/your-form-id"
+
+    # Exclude from processing
+    exclude:
+      - Gemfile
+      - Gemfile.lock
+      - node_modules
+      - vendor/bundle/
+      - vendor/cache/
+      - vendor/gems/
+      - vendor/ruby/
+      - README.md
+      - LICENSE
+      - "*.zip"
