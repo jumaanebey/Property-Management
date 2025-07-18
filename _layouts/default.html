@@ -1,53 +1,8 @@
  <!DOCTYPE html>
   <html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title
-  }}</title>
-    <meta name="description" content="{% if page.description %}{{ 
-  page.description }}{% else %}{{ site.description }}{% endif %}">
-
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="{{ page.url | absolute_url }}">
-    <meta property="og:title" content="{% if page.title %}{{ page.title }}
-   | {% endif %}{{ site.title }}">
-    <meta property="og:description" content="{% if page.description %}{{ 
-  page.description }}{% else %}{{ site.description }}{% endif %}">
-    <meta property="og:image" content="{% if page.image %}{{ page.image | 
-  absolute_url }}{% else %}https://images.unsplash.com/photo-1560518883-ce
-  09059eeffa?w=1200&h=630&fit=crop{% endif %}">
-
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="{{ page.url | absolute_url }}">
-    <meta property="twitter:title" content="{% if page.title %}{{ 
-  page.title }} | {% endif %}{{ site.title }}">
-    <meta property="twitter:description" content="{% if page.description 
-  %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
-    <meta property="twitter:image" content="{% if page.image %}{{ 
-  page.image | absolute_url }}{% else %}https://images.unsplash.com/photo-
-  1560518883-ce09059eeffa?w=1200&h=630&fit=crop{% endif %}">
-
-    <!-- Favicon -->
-    <link rel="apple-touch-icon" sizes="180x180" href="{{ 
-  '/assets/images/favicons/apple-touch-icon.png' | relative_url }}">
-  <link rel="icon" type="image/png" sizes="32x32" href="{{ 
-  '/assets/images/favicons/favicon-32x32.png' | relative_url }}">
-  <link rel="icon" type="image/png" sizes="16x16" href="{{ 
-  '/assets/images/favicons/favicon-16x16.png' | relative_url }}">
-  <link rel="manifest" href="{{ '/assets/images/favicons/site.webmanifest'
-   | relative_url }}">
-  <link rel="mask-icon" href="{{ 
-  '/assets/images/favicons/safari-pinned-tab.svg' | relative_url }}" 
-  color="#1e40af">
-  <link rel="shortcut icon" href="{{ '/assets/images/favicons/favicon.ico'
-   | relative_url }}">
-  <meta name="msapplication-TileColor" content="#1e40af">
-  <meta name="msapplication-config" content="{{ 
-  '/assets/images/favicons/browserconfig.xml' | relative_url }}">
-  <meta name="theme-color" content="#1e40af">
+    <!-- Comprehensive SEO Meta Tags -->
+    {% include seo.html %}
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
