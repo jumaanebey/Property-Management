@@ -1,0 +1,321 @@
+  ---
+  layout: default
+  title: "Page Not Found"
+  description: "The page you're looking for doesn't exist. Explore our
+  available properties and property management services instead."
+  permalink: /404.html
+  ---
+
+  <div class="min-h-screen flex items-center justify-center bg-gray-50 
+  py-12 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-md w-full space-y-8 text-center">
+
+      <!-- 404 Icon -->
+      <div class="loading">
+        <div class="w-32 h-32 bg-primary rounded-full flex items-center 
+  justify-center mx-auto mb-8">
+          <i class="fas fa-home text-white text-6xl"></i>
+        </div>
+      </div>
+
+      <!-- Error Message -->
+      <div class="loading">
+        <h1 class="text-9xl font-bold text-gray-300 mb-4">404</h1>
+        <h2 class="text-3xl font-bold text-gray-900 mb-4">Page Not
+  Found</h2>
+        <p class="text-lg text-gray-600 mb-8">
+          Oops! The page you're looking for seems to have moved or doesn't
+   exist.
+          Don't worry, we'll help you find what you need.
+        </p>
+      </div>
+
+      <!-- Quick Actions -->
+      <div class="loading space-y-4">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <a 
+            href="{{ '/' | relative_url }}" 
+            class="bg-primary text-white px-6 py-3 rounded-lg 
+  hover:bg-blue-700 transition-colors font-medium focus-ring inline-flex 
+  items-center justify-center"
+          >
+            <i class="fas fa-home mr-2"></i>
+            Go Home
+          </a>
+
+          <a 
+            href="{{ '/properties/' | relative_url }}" 
+            class="border border-primary text-primary px-6 py-3 rounded-lg
+   hover:bg-primary hover:text-white transition-colors font-medium 
+  focus-ring inline-flex items-center justify-center"
+          >
+            <i class="fas fa-building mr-2"></i>
+            View Properties
+          </a>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <a 
+            href="{{ '/services/' | relative_url }}" 
+            class="bg-accent text-gray-900 px-6 py-3 rounded-lg 
+  hover:bg-yellow-500 transition-colors font-medium focus-ring inline-flex
+   items-center justify-center"
+          >
+            <i class="fas fa-cogs mr-2"></i>
+            Our Services
+          </a>
+
+          <a 
+            href="{{ '/contact/' | relative_url }}" 
+            class="border border-accent text-accent px-6 py-3 rounded-lg 
+  hover:bg-accent hover:text-gray-900 transition-colors font-medium 
+  focus-ring inline-flex items-center justify-center"
+          >
+            <i class="fas fa-envelope mr-2"></i>
+            Contact Us
+          </a>
+        </div>
+      </div>
+
+      <!-- Search Box -->
+      <div class="loading mt-8">
+        <div class="bg-white rounded-lg shadow-md p-6">
+          <h3 class="text-lg font-semibold text-gray-900 mb-4">Looking for
+   something specific?</h3>
+          <form id="search-form" class="space-y-4">
+            <div class="relative">
+              <input 
+                type="text" 
+                id="search-input"
+                placeholder="Search for properties, services, or 
+  information..."
+                class="w-full px-4 py-3 pl-12 border border-gray-300 
+  rounded-lg focus:outline-none focus:ring-2 focus:ring-primary 
+  focus:border-transparent"
+              >
+              <i class="fas fa-search absolute left-4 top-1/2 transform 
+  -translate-y-1/2 text-gray-400"></i>
+            </div>
+            <button 
+              type="submit"
+              class="w-full bg-secondary text-white py-3 px-4 rounded-lg 
+  hover:bg-blue-600 transition-colors font-medium focus-ring"
+            >
+              Search Our Site
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Popular Pages -->
+      <div class="loading mt-8">
+        <div class="bg-white rounded-lg shadow-md p-6">
+          <h3 class="text-lg font-semibold text-gray-900 mb-4">Popular
+  Pages</h3>
+          <div class="space-y-3">
+            <a 
+              href="{{ '/about/' | relative_url }}" 
+              class="flex items-center justify-between p-3 border 
+  border-gray-200 rounded-lg hover:border-primary hover:bg-gray-50 
+  transition-colors group"
+            >
+              <div class="flex items-center">
+                <i class="fas fa-users text-primary mr-3"></i>
+                <span class="font-medium">About Our Company</span>
+              </div>
+              <i class="fas fa-arrow-right text-gray-400 
+  group-hover:text-primary transition-colors"></i>
+            </a>
+
+            <a 
+              href="{{ '/properties/' | relative_url }}" 
+              class="flex items-center justify-between p-3 border 
+  border-gray-200 rounded-lg hover:border-primary hover:bg-gray-50 
+  transition-colors group"
+            >
+              <div class="flex items-center">
+                <i class="fas fa-building text-primary mr-3"></i>
+                <span class="font-medium">Available Properties</span>
+              </div>
+              <i class="fas fa-arrow-right text-gray-400 
+  group-hover:text-primary transition-colors"></i>
+            </a>
+
+            <a 
+              href="{{ '/services/' | relative_url }}" 
+              class="flex items-center justify-between p-3 border 
+  border-gray-200 rounded-lg hover:border-primary hover:bg-gray-50 
+  transition-colors group"
+            >
+              <div class="flex items-center">
+                <i class="fas fa-cogs text-primary mr-3"></i>
+                <span class="font-medium">Property Management
+  Services</span>
+              </div>
+              <i class="fas fa-arrow-right text-gray-400 
+  group-hover:text-primary transition-colors"></i>
+            </a>
+
+            <a 
+              href="{{ '/contact/' | relative_url }}" 
+              class="flex items-center justify-between p-3 border 
+  border-gray-200 rounded-lg hover:border-primary hover:bg-gray-50 
+  transition-colors group"
+            >
+              <div class="flex items-center">
+                <i class="fas fa-phone text-primary mr-3"></i>
+                <span class="font-medium">Get In Touch</span>
+              </div>
+              <i class="fas fa-arrow-right text-gray-400 
+  group-hover:text-primary transition-colors"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Emergency Contact -->
+      <div class="loading mt-8">
+        <div class="bg-red-50 border border-red-200 rounded-lg p-6">
+          <h3 class="text-lg font-semibold text-red-800 mb-2">
+            <i class="fas fa-exclamation-triangle mr-2"></i>
+            Need Immediate Help?
+          </h3>
+          <p class="text-red-700 text-sm mb-4">
+            If you're a current tenant with an emergency maintenance
+  issue, don't wait! Call our 24/7 emergency line:
+          </p>
+          <a 
+            href="tel:+1-555-363-7436" 
+            class="bg-red-600 text-white px-6 py-3 rounded-lg 
+  hover:bg-red-700 transition-colors font-medium focus-ring inline-flex 
+  items-center"
+          >
+            <i class="fas fa-phone mr-2"></i>
+            Call Emergency Line
+          </a>
+        </div>
+      </div>
+
+      <!-- Helpful Resources -->
+      <div class="loading mt-8">
+        <div class="text-left">
+          <h3 class="text-lg font-semibold text-gray-900 mb-4">Helpful
+  Resources</h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+
+            <div class="space-y-2">
+              <h4 class="font-medium text-gray-900">For Property
+  Owners</h4>
+              <ul class="space-y-1 text-gray-600">
+                <li><a href="{{ '/services/' | relative_url }}" 
+  class="hover:text-primary transition-colors">• Property Management
+  Services</a></li>
+                <li><a href="{{ '/contact/' | relative_url }}" 
+  class="hover:text-primary transition-colors">• Free
+  Consultation</a></li>
+                <li><a href="{{ '/about/' | relative_url }}" 
+  class="hover:text-primary transition-colors">• Our Track Record</a></li>
+              </ul>
+            </div>
+
+            <div class="space-y-2">
+              <h4 class="font-medium text-gray-900">For Tenants</h4>
+              <ul class="space-y-1 text-gray-600">
+                <li><a href="{{ '/properties/' | relative_url }}" 
+  class="hover:text-primary transition-colors">• Available
+  Rentals</a></li>
+                <li><a href="{{ '/contact/' | relative_url }}" 
+  class="hover:text-primary transition-colors">• Schedule Viewing</a></li>
+                <li><a href="tel:{{ site.contact.phone }}" 
+  class="hover:text-primary transition-colors">• Maintenance
+  Requests</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact Information -->
+      <div class="loading mt-8">
+        <div class="bg-primary text-white rounded-lg p-6">
+          <h3 class="text-lg font-semibold mb-4">Still Can't Find What You
+   Need?</h3>
+          <p class="text-blue-100 mb-4">Our team is here to help you find
+  exactly what you're looking for.</p>
+
+          <div class="space-y-3">
+            <a 
+              href="tel:{{ site.contact.phone }}" 
+              class="flex items-center justify-center bg-white 
+  text-primary px-4 py-2 rounded-lg hover:bg-gray-100 transition-colors 
+  font-medium"
+            >
+              <i class="fas fa-phone mr-2"></i>
+              Call {{ site.contact.phone }}
+            </a>
+
+            <a 
+              href="mailto:{{ site.contact.email }}" 
+              class="flex items-center justify-center border border-white 
+  text-white px-4 py-2 rounded-lg hover:bg-white hover:text-primary 
+  transition-colors font-medium"
+            >
+              <i class="fas fa-envelope mr-2"></i>
+              Email {{ site.contact.email }}
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Search functionality
+    const searchForm = document.getElementById('search-form');
+    const searchInput = document.getElementById('search-input');
+
+    searchForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const searchTerm = searchInput.value.trim();
+
+      if (searchTerm) {
+        // Simple search logic - redirect to relevant pages based on 
+  keywords
+        const lowerCaseTerm = searchTerm.toLowerCase();
+
+        if (lowerCaseTerm.includes('property') ||
+  lowerCaseTerm.includes('rent') || lowerCaseTerm.includes('apartment') ||
+   lowerCaseTerm.includes('house')) {
+          window.location.href = "{{ '/properties/' | relative_url }}";
+        } else if (lowerCaseTerm.includes('service') ||
+  lowerCaseTerm.includes('management') ||
+  lowerCaseTerm.includes('manage')) {
+          window.location.href = "{{ '/services/' | relative_url }}";
+        } else if (lowerCaseTerm.includes('about') ||
+  lowerCaseTerm.includes('team') || lowerCaseTerm.includes('company')) {
+          window.location.href = "{{ '/about/' | relative_url }}";
+        } else if (lowerCaseTerm.includes('contact') ||
+  lowerCaseTerm.includes('phone') || lowerCaseTerm.includes('email')) {
+          window.location.href = "{{ '/contact/' | relative_url }}";
+        } else {
+          // Default to properties page for any other search
+          window.location.href = "{{ '/properties/' | relative_url }}";
+        }
+      }
+    });
+
+    // Track 404 page visits (if Google Analytics is set up)
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'page_view', {
+        page_title: '404 Error',
+        page_location: window.location.href,
+        custom_map: {'custom_parameter_1': 'error_page'}
+      });
+    }
+
+    // Log the broken URL for debugging (optional)
+    console.log('404 Error - Page not found:', window.location.href);
+  });
+  </script>
